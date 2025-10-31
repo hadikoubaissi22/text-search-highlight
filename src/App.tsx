@@ -18,8 +18,6 @@ function useDebouncedValue<T>(value: T, delay = 250): T {
   return debouncedValue;
 }
 
-
-
 export default function App() {
   const [search, setSearch] = useState<string>("");
 
@@ -46,8 +44,26 @@ export default function App() {
     },
     [debouncedSearch]
   );
+const totalMatches = useMemo(() => {
+  const q = debouncedSearch.trim();
+  if (!q) return 0;
 
-  
+  return filtered.reduce((sum, article) => {
+    return (
+      sum +
+      countOccurrences(article.title, q) +
+      countOccurrences(article.content, q)
+    );
+  }, 0);
+}, [filtered, debouncedSearch]);
+function countOccurrences(text: string, query: string): number {
+  if (!query.trim()) return 0;
+  const safeQuery = escapeRegex(query);
+  const regex = new RegExp(safeQuery, "gi");
+  const matches = text.match(regex);
+  return matches ? matches.length : 0;
+}
+
   return (
     <div className="container">
       <h1 className="title">Search</h1>
@@ -69,8 +85,9 @@ export default function App() {
       </div>
 
       <p className="count">
-        <strong>{filtered.length}</strong> posts were found.
+        <strong>{totalMatches}</strong> matches were found.
       </p>
+
 
       <div className="results">
         {filtered.map((article) => (
