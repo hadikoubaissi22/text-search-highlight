@@ -1,0 +1,100 @@
+:root 
+{
+  --max-width: 900px;
+  --accent: #f7d94c; 
+}
+
+body 
+{
+  font-family:  "Segoe UI", Arial;
+  background: #f6f6f6;
+  margin: 0;
+  padding: 32px;
+  color: #111;
+}
+
+.container 
+{
+  max-width: var(--max-width);
+  margin: 0 auto;
+  background: #fff;
+  padding: 28px;
+  border-radius: 6px;
+  box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+}
+
+.title 
+{
+  font-size: 26px;
+  margin: 0 0 18px 0;
+}
+
+.search-row 
+{
+  position: relative;
+  margin-bottom: 14px;
+}
+
+.search-input {
+  width: 100%;
+  padding: 12px 40px 12px 14px;
+  font-size: 16px;
+  border: 1px solid #dedede;
+  border-radius: 4px;
+  outline: none;
+  box-sizing: border-box;
+}
+
+.clear-btn {
+  position: absolute;
+  right: 8px;
+  top: 8px;
+  background: transparent;
+  border: none;
+  font-size: 20px;
+  line-height: 1;
+  cursor: pointer;
+  color: #666;
+}
+
+.count 
+{
+  margin-top: 8px;
+  font-size: 15px;
+}
+
+.results {
+  margin-top: 18px;
+}
+
+.card {
+  padding: 18px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.article-title {
+  font-size: 20px;
+  margin: 0 0 6px 0;
+}
+
+
+
+.date {
+  color: #777;
+  margin-bottom: 8px;
+  font-size: 13px;
+}
+
+.article-content {
+  color: #333;
+  margin: 8px 0 0 0;
+}
+
+
+
+mark {
+  background: #ffd94d;
+  padding: 2px 4px;
+  border-radius: 2px;
+  font-weight: 600;
+}
